@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
   </head>
 
   <body>
@@ -30,10 +29,8 @@
       </div>
     </nav>
     <div class="container">
-
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
@@ -48,7 +45,12 @@
         </div>
       </div>
       <div class="footer-copyright">
-        <div class="container">2018 <a class="grey-text text-lighten-4 right" href="">MIT License</a> </div>
+        <div class="container">
+          <img src="https://files.readme.io/PKPqx8L9TJSAY2Bnmw7F_phoenixframework-logo-white@2x.png" alt="" class="right" style="max-height: 25px;">
+          <div class="grey-text text-lighten-3 m-r-10 right">Powered by </div>
+          <div class="grey-text text-lighten-4 left">2018 |</div>
+          <a class="grey-text text-lighten-4 m-l-5 left" href="">MIT License</a>
+        </div>
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
