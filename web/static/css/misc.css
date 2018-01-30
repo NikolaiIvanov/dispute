@@ -1,0 +1,28 @@
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.header {
+  color: #ee6e73;
+  font-weight: 300;
+  line-height: 90px;
+}
+
+.card.small .card-image {
+  max-height: 75%!important;
+  overflow: hidden;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+main {
+  flex: 1 0 auto;
+}

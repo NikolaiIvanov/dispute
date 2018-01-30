@@ -1,0 +1,11 @@
+<h2 class="col s12 header">
+  <span class="teal-text lighten-1"><%= @topic.title %></span>
+  <%= link to: topic_path(@conn, :index), class: "btn right waves-effect waves-light m-t-30" do %>
+    <i class="material-icons left">arrow_back</i>Back
+  <% end %>
+</h2>
+
+<p class="flow-text">
+  <%= @topic.description %>
+</p>
+<hr>
