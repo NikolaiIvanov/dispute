@@ -23,9 +23,11 @@ defmodule Dispute.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", Dispute do
+  scope "/api", Dispute, as: :api do
     pipe_through :api
 
-    resources "/topics", TopicController
+    scope "/v1", Api.V1, as: :v1 do
+      resources "/topics", TopicController, only: [:index, :show]
+    end
   end
 end
