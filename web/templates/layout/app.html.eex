@@ -18,29 +18,33 @@
   <body>
     <nav class="navbar-color gradient-45deg-light-blue-cyan">
       <div class="nav-wrapper container">
-        <a href="#!" class="brand-logo">Dispute</a>
+        <a href="/" class="brand-logo">Dispute</a>
+
         <ul class="right hide-on-med-and-down">
           <li>
-            <a class="waves-effect waves-light btn">
-              Login <i class="material-icons right">account_circle</i>
+            <a href="/topics">Topics</a>
+          </li>
+          <li>
+            <a class="btn-floating btn-xs waves-effect waves-light">
+              <i class="material-icons">fingerprint</i>
             </a>
+
           </li>
         </ul>
       </div>
     </nav>
-    <div class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-    <div class="push"></div>
-    </div> <!-- /container -->
+    <main role="main">
+      <div class="container">
+        <p class="alert alert-info m-t-30" role="alert"><%= get_flash(@conn, :info) %></p>
+        <p class="alert alert-danger m-t-30" role="alert"><%= get_flash(@conn, :error) %></p>
+          <%= render @view_module, @view_template, assigns %>
+      </div>
+    </main>
     <footer class="page-footer">
       <div class="container">
         <div class="row">
           <div class="col s12">
-            <h5 class="white-text">Dispute is fun</h5>
+            <h5 class="white-text"></h5>
           </div>
         </div>
       </div>

@@ -1,10 +1,13 @@
-defmodule Dispute.Repo.Migrations.AddTopics do
+defmodule Dispute.Repo.Migrations.CreateTopic do
   use Ecto.Migration
 
   def change do
-    create  table(:topics) do
+    create table(:topics) do
       add :title, :string
-      add :description, :string
+      add :description, :text
+
+      timestamps()
     end
+
   end
 end

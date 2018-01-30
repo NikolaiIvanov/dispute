@@ -1,0 +1,52 @@
+<h2 class="col s12 header">Topics
+  <%= link to: topic_path(@conn, :new), class: "right btn-floating btn-xs waves-effect waves-light m-r-15 m-t-30" do %>
+    <i class="material-icons dp48">add_circle</i>
+  <% end %>
+</h2>
+
+<%= for topic <- @topics do %>
+  <div class="card hoverable small">
+    <div class="card-image relative">
+      <img src="https://picsum.photos/1100/300/?random">
+      <span class="card-title"><%= topic.title %></span>
+      <div class="fixed-action-btn horizontal" style="position: absolute; top: 20px; right: 20px;" >
+        <a class="btn-floating btn-large cyan">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul>
+          <li>
+            <%= link to: topic_path(@conn, :edit, topic),
+              class: "btn-floating yellow darken-1 tooltipped",
+              style: "transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;",
+              data: [position: "top", delay: "50", tooltip: "Read more"] do %>
+              <i class="material-icons dp48">comment</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link to: topic_path(@conn, :edit, topic),
+              class: "btn-floating blue tooltipped",
+              style: "transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;",
+              data: [position: "top", delay: "50", tooltip: "Edit Topic"] do %>
+              <i class="material-icons dp48">edit</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link to: topic_path(@conn, :delete, topic),
+              method: :delete,
+              data: [confirm: "Are you sure?"],
+              class: "btn-floating red tooltipped",
+              style: "transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;",
+              data: [position: "top", delay: "50", tooltip: "Delete Topic"] do %>
+              <i class="material-icons dp48">delete_forever</i>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-content">
+      <%= link to: topic_path(@conn, :show, topic), class: "lead" do %>
+        <p class="truncate"><%= topic.description %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
