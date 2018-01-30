@@ -35,8 +35,18 @@
     </nav>
     <main role="main">
       <div class="container">
-        <p class="alert alert-info m-t-30" role="alert"><%= get_flash(@conn, :info) %></p>
-        <p class="alert alert-danger m-t-30" role="alert"><%= get_flash(@conn, :error) %></p>
+        <%= if get_flash(@conn, :error) do  %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <%= get_flash(@conn, :error) %>
+          </div>
+        <% end %>
+        <%= if get_flash(@conn, :info) do  %>
+          <div class="alert alert-info alert-dismissible m-t-30" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <%= get_flash(@conn, :info) %>
+          </div>
+        <% end %>
           <%= render @view_module, @view_template, assigns %>
       </div>
     </main>
@@ -58,5 +68,6 @@
       </div>
     </footer>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>

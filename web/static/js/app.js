@@ -22,4 +22,8 @@ import "phoenix_html"
 
 $(document).ready(function(){
   $('.tooltipped').tooltip({delay: 50});
+
+  $('.alert.alert-success.alert-dismissable, .alert.alert-info.alert-dismissible, .alert.alert-danger.alert-dismissible, .alert.alert-warning.alert-dismissable').fadeTo(2000, 500).slideUp(500, function(){
+    $(this).alert('close');
+  });
 });

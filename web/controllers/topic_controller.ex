@@ -3,9 +3,12 @@ defmodule Dispute.TopicController do
 
   alias Dispute.{Topic, Comment}
 
-  def index(conn, _params) do
-    topics = Repo.all(Topic)
-    render(conn, "index.html", topics: topics)
+  def index(conn, params) do
+    # topics = Repo.all(Topic)
+    page = Topic
+           |> Repo.paginate(params)
+    # render(conn, "index.html", topics: topics)
+    render(conn, "index.html", topics: page.entries, page: page)
   end
 
   def new(conn, _params) do
