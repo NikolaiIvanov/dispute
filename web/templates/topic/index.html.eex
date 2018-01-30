@@ -15,7 +15,7 @@
         </a>
         <ul>
           <li>
-            <%= link to: topic_path(@conn, :edit, topic),
+            <%= link to: topic_path(@conn, :show, topic),
               class: "btn-floating yellow darken-1 tooltipped",
               style: "transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;",
               data: [position: "top", delay: "50", tooltip: "Read more"] do %>
