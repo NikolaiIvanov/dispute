@@ -4,6 +4,7 @@ defmodule Dispute.Topic do
   schema "topics" do
     field :title, :string
     field :description, :string
+    has_many :comments, Dispute.Comment
 
     timestamps()
   end

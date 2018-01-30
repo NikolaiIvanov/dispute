@@ -1,7 +1,7 @@
 defmodule Dispute.TopicController do
   use Dispute.Web, :controller
 
-  alias Dispute.Topic
+  alias Dispute.{Topic, Comment}
 
   def index(conn, _params) do
     topics = Repo.all(Topic)
@@ -27,8 +27,13 @@ defmodule Dispute.TopicController do
   end
 
   def show(conn, %{"id" => id}) do
+    # topic = Topic
+    #         |> Repo.get(id)
+    #         |> Repo.preload(topic, :comments)
     topic = Repo.get!(Topic, id)
-    render(conn, "show.html", topic: topic)
+    topic = Repo.preload(topic, :comments)
+    comment_changeset = Comment.changeset(%Comment{})
+    render(conn, "show.html", topic: topic, comment_changeset: comment_changeset)
   end
 
   def edit(conn, %{"id" => id}) do

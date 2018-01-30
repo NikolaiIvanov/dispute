@@ -9,3 +9,28 @@
   <%= @topic.description %>
 </p>
 <hr>
+<%= for comment <- @topic.comments do %>
+  <div class="col s12 m8 offset-m2 l6 offset-l3">
+    <div class="card-panel grey lighten-5 z-depth-1">
+      <div class="row valign-wrapper">
+        <div class="col s1">
+          <img src="https://picsum.photos/60/60/?random" alt="" class="circle responsive-img">
+        </div>
+        <div class="col s11">
+          <span class="black-text">
+            <%= comment.body %>
+          </span>
+        </div>
+        <%= link to: topic_comment_path(@conn, :delete, @topic, comment),
+          method: :delete,
+          data: [confirm: "Are you sure?"],
+          class: "btn-floating red tooltipped",
+          data: [position: "top", delay: "50", tooltip: "Delete Comment"] do %>
+          <i class="material-icons dp48">delete_forever</i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<hr>
+<%= render Dispute.CommentView, "new.html", conn: @conn, topic: @topic, comment_changeset: @comment_changeset %>
