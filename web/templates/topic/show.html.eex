@@ -5,9 +5,11 @@
   <% end %>
 </h2>
 
-<p class="flow-text">
-  <%= @topic.description %>
-</p>
+<div class="lead-show">
+  <%= raw(Earmark.as_html!(@topic.description)) %>
+</div>
+
+
 <hr>
 <%= for comment <- @topic.comments do %>
   <div class="col s12 m8 offset-m2 l6 offset-l3">

@@ -45,7 +45,7 @@
     </div>
     <div class="card-content">
       <%= link to: topic_path(@conn, :show, topic), class: "lead" do %>
-        <p class="truncate"><%= topic.description %></p>
+          <%= raw(Earmark.as_html!(String.slice(topic.description, 0..100) <> "..."))%>
       <% end %>
     </div>
   </div>

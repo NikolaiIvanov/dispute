@@ -26,4 +26,6 @@ $(document).ready(function(){
   $('.alert.alert-success.alert-dismissable, .alert.alert-info.alert-dismissible, .alert.alert-danger.alert-dismissible, .alert.alert-warning.alert-dismissable').fadeTo(2000, 500).slideUp(500, function(){
     $(this).alert('close');
   });
+
+  var simplemde = new SimpleMDE();
 });

@@ -16,10 +16,8 @@
   <div class="form-group">
     <div class="row">
       <div class="input-field col s12">
-        <!-- <textarea id="textarea1" class="materialize-textarea"></textarea> -->
-        <%= textarea f, :description, class: "materialize-textarea" %>
+        <%= textarea f, :description, class: "materialize-textarea", id: "body-editor" %>
         <%= label f, :description, class: "control-label" %>
-        <!-- <label for="textarea1">Textarea</label> -->
       </div>
     </div>
     <%= error_tag f, :description %>

@@ -38,6 +38,7 @@ defmodule Dispute.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:trailing_format_plug, "~> 0.0.5"},
+     {:earmark, "~> 1.1"},
      {:cowboy, "~> 1.0"},
      {:blankable, "~> 0.0.1"},
      {:scrivener_ecto, "~> 1.0"},
