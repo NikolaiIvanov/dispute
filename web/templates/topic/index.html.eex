@@ -51,34 +51,6 @@
   </div>
 <% end %>
 
-<!-- Needs refactoring -->
-<div aria-label="Page navigation" class="text-center">
-  <ul class="pagination center-align">
-    <%= if @page.page_number < 2 do %>
-      <li class="disabled">
-        <%= link to: "#" do %>
-          <span aria-hidden="true">&laquo;</span> Previous Page
-        <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link to: topic_path(@conn, :index, page: @page.page_number - 1), aria: [label: "Next"] do %>
-          <span aria-hidden="true">&laquo;</span> Previous Page
-        <% end %>
-      </li>
-    <% end %>
-    <%= if Blankable.blank?(@topics) do %>
-      <li class="disabled">
-        <%= link to: "#" do %>
-          Next Page <span aria-hidden="true">&raquo;</span>
-        <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link to: topic_path(@conn, :index, page: @page.page_number + 1), aria: [label: "Previous"] do %>
-          Next Page <span aria-hidden="true">&raquo;</span>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+<div class="text-center no-bg">
+  <%= pagination_links @page %>
 </div>

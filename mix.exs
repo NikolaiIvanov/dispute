@@ -19,7 +19,7 @@ defmodule Dispute.Mixfile do
   def application do
     [mod: {Dispute, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex, :scrivener_ecto]]
+                    :phoenix_ecto, :postgrex, :scrivener_ecto, :scrivener_html]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,8 +38,9 @@ defmodule Dispute.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
+     {:blankable, "~> 0.0.1"},
      {:scrivener_ecto, "~> 1.0"},
-     {:blankable, "~> 0.0.1"}]
+     {:scrivener_html, "~> 1.1"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
