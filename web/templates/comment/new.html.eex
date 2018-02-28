@@ -4,8 +4,8 @@
     <div class="input-field col s12">
       <%= text_input f, :body, class: "validate" %>
       <%= label f, :body, class: "" %>
+      <%= error_tag f, :body %>
     </div>
-    <%= error_tag f, :body %>
   </div>
   <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>

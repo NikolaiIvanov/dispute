@@ -9,6 +9,7 @@ defmodule Dispute.TopicController do
            |> Repo.paginate(params)
     # render(conn, "index.html", topics: topics)
     render(conn, "index.html", topics: page.entries, page: page)
+
   end
 
   def new(conn, _params) do

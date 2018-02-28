@@ -50,3 +50,13 @@ main {
   line-height: 1.42857143;
   font-size: 17.5px;
 }
+
+.help-block {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
