@@ -6,7 +6,11 @@
 </h2>
 
 <div class="lead-show">
-  <%= raw(Earmark.as_html!(@topic.description)) %>
+  <%= if @topic do %>
+    <% raw(Earmark.as_html!(@topic.description)) %>
+  <% else %>
+     No content
+  <% end %>
 </div>
 
 

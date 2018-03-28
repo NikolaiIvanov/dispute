@@ -7,12 +7,12 @@ defmodule Dispute.TopicControllerTest do
 
   test "lists all entries on index", %{conn: conn} do
     conn = get conn, topic_path(conn, :index)
-    assert html_response(conn, 200) =~ "Listing topics"
+    assert html_response(conn, 200) =~ "Topics"
   end
 
   test "renders form for new resources", %{conn: conn} do
     conn = get conn, topic_path(conn, :new)
-    assert html_response(conn, 200) =~ "New topic"
+    assert html_response(conn, 200) =~ "New Topic"
   end
 
   test "creates resource and redirects when data is valid", %{conn: conn} do
@@ -23,13 +23,13 @@ defmodule Dispute.TopicControllerTest do
 
   test "does not create resource and renders errors when data is invalid", %{conn: conn} do
     conn = post conn, topic_path(conn, :create), topic: @invalid_attrs
-    assert html_response(conn, 200) =~ "New topic"
+    assert html_response(conn, 200) =~ "Oops, something went wrong! Please check the errors below."
   end
 
   test "shows chosen resource", %{conn: conn} do
-    topic = Repo.insert! %Topic{}
+    topic = Repo.insert! %Topic{description: "Test Topic content", title: "Test Topic"}
     conn = get conn, topic_path(conn, :show, topic)
-    assert html_response(conn, 200) =~ "Show topic"
+    assert html_response(conn, 200) =~ "Test Topic"
   end
 
   test "renders page not found when id is nonexistent", %{conn: conn} do
@@ -41,7 +41,7 @@ defmodule Dispute.TopicControllerTest do
   test "renders form for editing chosen resource", %{conn: conn} do
     topic = Repo.insert! %Topic{}
     conn = get conn, topic_path(conn, :edit, topic)
-    assert html_response(conn, 200) =~ "Edit topic"
+    assert html_response(conn, 200) =~ "Edit Topic:"
   end
 
   test "updates chosen resource and redirects when data is valid", %{conn: conn} do
@@ -54,7 +54,7 @@ defmodule Dispute.TopicControllerTest do
   test "does not update chosen resource and renders errors when data is invalid", %{conn: conn} do
     topic = Repo.insert! %Topic{}
     conn = put conn, topic_path(conn, :update, topic), topic: @invalid_attrs
-    assert html_response(conn, 200) =~ "Edit topic"
+    assert html_response(conn, 200) =~ "Oops, something went wrong! Please check the errors below."
   end
 
   test "deletes chosen resource", %{conn: conn} do

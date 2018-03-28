@@ -18,7 +18,7 @@ defmodule Dispute.Router do
 
     get "/", PageController, :index
     resources "/topics", TopicController do
-      resources "/comments", CommentController
+      resources "/comments", CommentController, only: [:create, :delete]
     end
   end
 
@@ -27,7 +27,9 @@ defmodule Dispute.Router do
     pipe_through :api
 
     scope "/v1", Api.V1, as: :v1 do
-      resources "/topics", TopicController, only: [:index, :show]
+      resources "/topics", TopicController, only: [:index, :show] do
+        resources "/comments", CommentController, only: [:index, :show]
+      end
     end
   end
 end
