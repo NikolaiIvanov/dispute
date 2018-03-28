@@ -1,5 +1,23 @@
+| Travis-CI Build Status |
+| :---- |
+[ ![Travis-CI build status][1]][2] |
+
+[1]: https://travis-ci.org/NikolaiIvanov/dispute.svg?branch=master
+[2]: https://travis-ci.org/NikolaiIvanov/dispute
+
 # Dispute
-Dispute based on Elixir and Phoenix
+App «Dispute» is based on Elixir and Phoenix
+
+- Key features:
+    - `Topics CRUD`
+    - `Simple comments system`
+    - `API versioning callbacks /api/v1/:sources`
+    - `Topic Editor support Markdown and HTML`
+    - `Topics Pagination`
+    - `Meterialize theme`
+
+Try Dispute App Online:
+    - [dispute.herokuapp.com](https://dispute.herokuapp.com)
 
 To start your Phoenix app:
 
