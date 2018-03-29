@@ -6,13 +6,8 @@
 </h2>
 
 <div class="lead-show">
-  <%= if @topic do %>
-    <% raw(Earmark.as_html!(@topic.description)) %>
-  <% else %>
-     No content
-  <% end %>
+  <%= raw(Earmark.as_html!(@topic.description)) %>
 </div>
-
 
 <hr>
 <%= for comment <- @topic.comments do %>

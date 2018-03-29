@@ -10,7 +10,15 @@ defmodule Dispute.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      aliases: aliases(),
-     deps: deps()]
+     deps: deps(),
+     test_coverage: [tool: ExCoveralls],
+     preferred_cli_env: cli_env_for(:test, [
+       "coveralls", "coveralls.detail", "coveralls.post", "coveralls.html"])
+     ]
+  end
+
+  defp cli_env_for(env, tasks) do
+    Enum.reduce(tasks, [], fn(key, acc) -> Keyword.put(acc, :"#{key}", env) end)
   end
 
   # Configuration for the OTP application.
@@ -42,7 +50,8 @@ defmodule Dispute.Mixfile do
      {:cowboy, "~> 1.0"},
      {:blankable, "~> 0.0.1"},
      {:scrivener_ecto, "~> 1.0"},
-     {:scrivener_html, "~> 1.1"}]
+     {:scrivener_html, "~> 1.1"},
+     {:excoveralls, "~> 0.8", only: :test}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
