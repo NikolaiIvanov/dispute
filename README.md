@@ -1,6 +1,6 @@
 | Travis-CI Build Status | Test Coverage |
 | :---- | :---- |
-[ ![Travis-CI build status][1]][2] | [![Test Coverage][3][4]] |
+[ ![Travis-CI build status][1]][2] | [![Test Coverage][3]][4] |
 
 [1]: https://travis-ci.org/NikolaiIvanov/dispute.svg?branch=master
 [2]: https://travis-ci.org/NikolaiIvanov/dispute
